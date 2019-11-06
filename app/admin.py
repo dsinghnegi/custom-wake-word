@@ -3,8 +3,8 @@ import os.path as op
 from flask import request, Response
 from werkzeug.exceptions import HTTPException
 from flask_admin import Admin
-from flask.ext.admin.contrib.sqla import ModelView
-from flask.ext.admin.contrib.fileadmin import FileAdmin
+from flask_admin.contrib.sqla import ModelView
+from flask_admin.contrib.fileadmin import FileAdmin
 
 from app import app, db
 from app.models import User

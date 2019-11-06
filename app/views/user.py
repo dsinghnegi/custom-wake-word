@@ -1,6 +1,6 @@
 from flask import (Blueprint, render_template, redirect, request, url_for,
                    abort, flash)
-from flask.ext.login import login_user, logout_user, login_required, current_user
+from flask_login import login_user, logout_user, login_required, current_user
 from itsdangerous import URLSafeTimedSerializer
 from app import app, models, db
 from app.forms import user as user_forms
