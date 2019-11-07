@@ -2,6 +2,7 @@ from flask_wtf import Form
 from wtforms import TextField, PasswordField
 from wtforms.validators import (Required, Length, Email, ValidationError,
                                 EqualTo)
+from flask_wtf.file import FileField, FileAllowed, FileRequired
 from app.models import User
 
 
@@ -76,3 +77,7 @@ class SignUp(Form):
         EqualTo('confirm', message='Passwords must match.')
     ], description='Password')
     confirm = PasswordField(description='Confirm password')
+
+
+class UploadForm(Form):
+    file = FileField(u'WAV_file', validators=[FileRequired(),FileAllowed(['wav','WAV'], "Please use WAV format!")])

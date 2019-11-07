@@ -2,8 +2,8 @@
 {% import "macros.html" as m %}
 <html lang="en">
 	<body id="container">
-   		<div id="header">
-   			{% block head %}
+		<div id="header">
+			{% block head %}
 				<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'/>
 				<meta charset="UTF-8">
 				<link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
@@ -15,63 +15,69 @@
 				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/components/reset.min.css"/>
 				<!-- Semantic Menu CSS -->
 				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/components/menu.min.css"/>
+				<!-- Bootstrap CSS -->
+				<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 				<!-- Main Semantic JS  -->
-			    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
 				<!-- Custom CSS -->
 				<link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
 				<!-- Browser tab name -->
 				<title>{{ title }}</title>
 				<!-- Navbar -->
 				<div class="ui attached inverted menu">
-				  	{{ m.nav_link('index', 'Home') }}
-				  	{{ m.nav_link('map', 'Map') }}
-					{{ m.nav_link('contact', 'Contact') }}
-				 	<div class="right menu">
-				 		<!-- User is logged in -->
-				      	{% if current_user.is_authenticated %}
-				      		<div class="item">
-				        		<a class="ui primary button" href="/user/account">{{ current_user.full_name }}</a>
-				    		</div>
-				    		<div class="item">
-				        		<a class="ui default button" href="/user/signout">Sign out</a>
-				    		</div>
-			          	<!-- User is not logged in -->
-			          	{% else %}
-			          		<div class="item">
-				        		<a class="ui primary button" href="/user/signin">Sign in</a>
-				    		</div>
-				    		<div class="item">
-				        		<a class="ui default button" href="/user/signup">Sign up</a>
-				    		</div>
+					<div class="right menu">
+						<!-- User is logged in -->
+						{% if current_user.is_authenticated %}
+							<div class="item">
+								<a class="ui primary button" href="/user/account">{{ current_user.full_name }}</a>
+							</div>
+							<div class="item">
+								<a class="ui default button" href="/user/signout">Sign out</a>
+							</div>
+						<!-- User is not logged in -->
+						{% else %}
+							<div class="item">
+								<a class="ui primary button" href="/user/signin">Sign in</a>
+							</div>
+							<div class="item">
+								<a class="ui default button" href="/user/signup">Sign up</a>
+							</div>
 						{% endif %}
-			  		</div>
+					</div>
 				</div>
 			{% endblock %}
-   		</div>
-   		<!-- Message flashing -->
+		</div>
+		<!-- Message flashing -->
 		{% with messages = get_flashed_messages(with_categories=true) %}
-		  	{% if messages %}
-		    	<ul>
-		    		{% for category, message in messages %}
-		      			<li class="ui {{ category }} message flash">{{ message }}</li>
-		    		{% endfor %}
-		    	</ul>
-		  	{% endif %}
+			{% if messages %}
+				<ul>
+					{% for category, message in messages %}
+						<li class="ui {{ category }} message flash">{{ message }}</li>
+					{% endfor %}
+				</ul>
+			{% endif %}
 		{% endwith %}
-   		<div id="body" class="body">
-   			{% block content %}{% endblock %}
-   		</div>
+		<div id="body" class="body">
+			{% block content %}{% endblock %}
+		</div>
 		<div id="footer">
 			<div class="ui divider"></div>
-	    		<div class="ui divided horizontal footer link list">
-			      	<div class="item">
-			        	Max Halford
-			      	</div>
-			      	<div class="item">
-			        	<a href="https://github.com/MaxHalford"><i class="github icon"></i></a>
-			      	</div>
-	    		</div>
-	  		</div>
+				<div class="ui divided horizontal footer link list">
+					<div class="item">
+						Dhirender Singh Negi
+					</div>
+					<div class="item">
+						<a href="https://github.com/dsinghnegi/"><i class="github icon"></i></a>
+					</div>
+				</div>
+			</div>
 		</div>
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 	</body>
 </html>

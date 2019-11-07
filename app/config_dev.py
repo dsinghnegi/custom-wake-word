@@ -32,3 +32,6 @@ LOG_LEVEL = logging.DEBUG
 LOG_FILENAME = 'activity.log'
 LOG_MAXBYTES = 1024
 LOG_BACKUPS = 2
+
+MAX_CONTENT_LENGTH= 10 * 1024 * 1024  # for 10MB max-limit.
+UPLOAD_FOLDER="app/static"

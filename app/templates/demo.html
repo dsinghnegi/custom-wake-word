@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+	<div class="ui form-user center raised very padded text container segment">
+		<form class="ui form" method="post" action="demo" enctype="multipart/form-data">
+			<h4 class="ui dividing header">Test model on your Voice</h4>
+			{{ m.render_field(form.file) }}
+			{{ form.csrf_token }}
+			<p class="text-muted">Select wav file with Max file size 10 MB</p>
+		  	<button class="ui primary button" type="submit">Upload Audio</button>
+			<a  href="https://webaudiodemos.appspot.com/AudioRecorder/index.html" >Don't have a wav file?</a> 
+			
+		</form>
+		
+	</div>
+
+{% endblock %}
