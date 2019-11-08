@@ -1,3 +1,9 @@
+# Loading model
+from ml_backend import predict
+wake_word=predict.wake_word()
+print("$$$$$$$$$$$$$$$$$$$$")
+
+
 from flask import Flask
 
 app = Flask(__name__)
@@ -44,3 +50,6 @@ def load_user(email):
     return User.query.filter(User.email == email).first()
 
 from app import admin
+
+
+

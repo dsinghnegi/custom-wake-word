@@ -4,7 +4,11 @@ import os
 from app import app
 import random
 from app.forms import user as user_forms
+from app import wake_word
 
+import plotly
+import plotly.graph_objs as go
+import json
 
 @app.route('/')
 @app.route('/index')
@@ -46,13 +50,22 @@ def store_file(form_audio):
 @app.route('/demo',methods=['POST','GET'])
 def demo():	
 	form = user_forms.UploadForm()
+	predictions=list(range(1,100,5))
 	if form.validate_on_submit():
 		print(request.files)
 		form_audio=request.files['file']
 		file_path=store_file(form_audio)
-		# data=dp.read_image(filepath)
-		# prediction,score=dp.chest_xray(data)
-		# score=round(score*100)
+		predictions=wake_word.detect_triggerword(file_path)[0,:,0]
+	
 
-	return render_template('demo.html',form=form)
+	data = [
+		go.Scatter(
+			x=list(range(len(predictions))),
+			y=predictions,
+		)
+	]
+
+	graphJSON = json.dumps(data, cls=plotly.utils.PlotlyJSONEncoder)
+
+	return render_template('demo.html',form=form, graphJSON=graphJSON)
 
