@@ -1,7 +1,9 @@
 # Loading model
 from ml_backend import predict
 wake_word=predict.wake_word()
-print("$$$$$$$$$$$$$$$$$$$$")
+
+from ml_backend import default_prediction
+
 
 
 from flask import Flask

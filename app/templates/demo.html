@@ -2,37 +2,84 @@
 
 {% block content %}
  <script type="text/javascript">
- 	function loadGraph() {
+	function loadGraph() {
 
 		var graphs = {{graphJSON | safe}};
-		Plotly.plot('graph',graphs,{});
+		var layout = {
+				title: {
+					text:'Wake Word Detection',
+					font: {
+						family: 'Courier New, monospace',
+						size: 24
+					},
+					xref: 'paper',
+					x: 0.05,
+				},
+				xaxis: {
+					title: {
+						text: 'Time',						
+						font: {
+							family: 'Courier New, monospace',
+							size: 18,
+							color: '#7f7f7f'
+						}
+					},
+				},
+				yaxis: {
+					title: {
+						text: 'Confidence',
+						font: {
+							family: 'Courier New, monospace',
+							size: 18,
+							color: '#7f7f7f'
+					  	}
+					}
+				}
+			};
+
+		Plotly.plot('graph',graphs,layout);
 	}
 	window.onload = loadGraph;
 	
 </script>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6">
-				<div class="chart" onload="loadGraph();" id="graph">
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 py-md-5">
+			<div class="ui center raised very padded text container segment">
 
-				</div>
+				<form class="ui form" method="post" action="demo" enctype="multipart/form-data">
+					<h4 class="ui dividing header">Test model on your Voice</h4>
+					{{ m.render_field(form.file) }}
+					{{ form.csrf_token }}
+					<p class="text-muted">Select wav file with Max file size 10 MB</p>
+					<button class="ui primary button" type="submit">Upload Audio</button>
+					<a  href="https://webaudiodemos.appspot.com/AudioRecorder/index.html" >Don't have a wav file?</a> 
+					
+				</form>
 			</div>
 		</div>
-	</div>
 
-	<div class="ui form-user center raised very padded text container segment">
-		<form class="ui form" method="post" action="demo" enctype="multipart/form-data">
-			<h4 class="ui dividing header">Test model on your Voice</h4>
-			{{ m.render_field(form.file) }}
-			{{ form.csrf_token }}
-			<p class="text-muted">Select wav file with Max file size 10 MB</p>
-			<button class="ui primary button" type="submit">Upload Audio</button>
-			<a  href="https://webaudiodemos.appspot.com/AudioRecorder/index.html" >Don't have a wav file?</a> 
-			
-		</form>
-		
-	</div>
+		<div class="col-md-6">
+			<div class="chart" onload="loadGraph();" id="graph">
+			</div>
+			<div  class="text-center">
+				<audio controls>
+					<source src="{{ url_for('static',filename='demo_audio/'+audio_file_path) }}" type="audio/x-wav">
+				</audio>				
+			</div>
 
+
+		</div>
+
+
+	</div>
+</div>
+
+<!-- <div class="ui form-user center raised very padded text container segment">
+	
+	
+</div>
+ -->
 
 
 {% endblock %}
