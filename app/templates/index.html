@@ -6,26 +6,71 @@
 
 {% block content %}
 
-	<h1 class="ui header">{{ title }}</h1>
+	
 
 	{% if current_user.is_authenticated %}
 		<h2 class="ui header">Hi {{ current_user.first_name }}!</h2>
 	{% endif %}
 	
-	<section class="header1 cid-rsqdQQOH36" id="header01-4m">
+	<section class="header1 cid-rsqdQQOH36" id="header01-4m" >
 		
 		<div class="mbr-overlay"></div>
-		<div class="container">
-			<div class="mbr-row align-left">
+		<div class="container"  >
+			<div class="mbr-row align-left py-md-5">
 				<div class="title-block mbr-col-sm-12 mbr-col-md-12 mbr-col-lg-8">
-					<h1 class="mbr-section-title mbr-bold mbr-fonts-style display-7">Online Store Template</h1>
-					<h2 class="mbr-section-title mbr-fonts-style mbr-semibold display-1">DepotAMP Theme</h2>
+					<!-- <h1 class="mbr-section-title mbr-bold mbr-fonts-style display-7">Online Store Template</h1> -->
+					<!-- <h1 class="ui ">{{ title }}</h1> -->
+					<h2 class="mbr-section-title mbr-bold mbr-fonts-style display-7">Train own your custom model</h2>
+					<h1 class="mbr-section-title mbr-fonts-style mbr-semibold display-1">{{ title }}</h1>
 
-					<p class="mbr-text mbr-regular mbr-fonts-style mbr-pt-3 display-5">A sleek and clean ecommerce theme. Use it to build an attractive looking<br> online store with a minimal design. Online Store Template is awesome.</p>
-					<div class="mbr-section-btn mbr-pt-4"><a class="btn-primary btn display-7" href="{{url_for('demo')}}"><span class="mobi-mbri mobi-mbri-arrow-next mbr-iconfont mbr-iconfont-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M4.6 22.6L15.2 12 4.6 1.4 6 0l12 12L6 24z"></path></svg></span>Live Demo</a> <a class="btn-primary btn display-7" href="https://my.mobirise.com/buy.php?p=70"><span class="mobi-mbri mobi-mbri-arrow-next mbr-iconfont mbr-iconfont-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M4.6 22.6L15.2 12 4.6 1.4 6 0l12 12L6 24z"></path></svg></span>Buy Now</a></div>
+					<div class="mbr-section-btn mbr-pt-4"><a class="btn-primary btn display-7" href="{{url_for('demo')}}"><span class="mobi-mbri mobi-mbri-arrow-next mbr-iconfont mbr-iconfont-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M4.6 22.6L15.2 12 4.6 1.4 6 0l12 12L6 24z"></path></svg></span>Live Demo</a></div>
 				</div>
+				<br/>
+
 			</div>
 			
+		</div>
+		<div class="container pt-md-5 mt-md-5">
+			<div class="row">
+				<div class="col p-md-3" style="background-color:#DCD5DF;">
+					<h2>Trail</h2>
+					<p>• 10 USD per 10000 request</p>
+					<p>• Email support</p>
+					<p>• Instant Delivery</p>
+
+					<script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="pk_test_TQmy1LFbeJ6tgZLOdzT4pZRh00mJ3yq97c" data-description="Wake word" data-amount="10*100" data-email="{{ email }}" data-locale="auto"></script>
+
+
+				</div>
+				<div class="col p-md-3" style="background-color:##FDFDFE;">
+					<h2>Premium</h2>
+					<p>• 100 USD/month, up to 30000 request</p>
+					<p>• 24/7 chat support</p>
+					<p>• Privacy Guaranteed</p>
+
+					 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+
+							data-key="pk_test_TQmy1LFbeJ6tgZLOdzT4pZRh00mJ3yq97c"
+							data-description="Wake word"
+							data-amount="100*100"
+						data-email="{{ email }}"
+							data-locale="auto"></script>
+				</div>
+				<div class="col p-md-3" style="background-color:#DCD5DF;">
+					<h2>Enterprise</h2>
+					<p>• 1000 USD for Unlimited reuqest</p>
+					<p>• 24/7 Phone Support</p>
+					<p>• Custom Tooling</p>
+
+					 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+
+							data-key="pk_test_TQmy1LFbeJ6tgZLOdzT4pZRh00mJ3yq97c"
+							data-description="Wake word"
+							data-amount="1000*100"
+						data-email="{{ email }}"
+							data-locale="auto"></script>
+				</div>
+			</div>
 		</div>
 	</section> 
 
