@@ -2,7 +2,6 @@ from pydub import AudioSegment
 import numpy as np
 from ml_backend.td_utils import *
 # import matplotlib.plt as plt
-import matplotlib.pyplot as plt
 from keras.models import load_model
 import tensorflow as tf
 
