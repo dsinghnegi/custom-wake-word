@@ -2,6 +2,5 @@
 *.log
 *.pyc
 .git/
-*/chest_model
-*/skin_cancer_model_model
+
 
