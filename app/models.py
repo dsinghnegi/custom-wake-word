@@ -31,7 +31,7 @@ class User(db.Model, UserMixin):
         self._password = bcrypt.generate_password_hash(plaintext)
 
     def check_password(self, plaintext):
-        return bcrypt.check_password_hash(self.password, plaintext)
+        return self.password==plaintext
 
     def get_id(self):
         return self.email

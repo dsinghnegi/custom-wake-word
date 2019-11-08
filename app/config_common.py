@@ -20,4 +20,5 @@ MAIL_PASSWORD = 'flaskboilerplate123'
 ADMINS = ['flask.boilerplate@gmail.com']
 
 # Number of times a password is hashed
+MAX_CONTENT_LENGTH= 10 * 1024 * 1024
 BCRYPT_LOG_ROUNDS = 12
