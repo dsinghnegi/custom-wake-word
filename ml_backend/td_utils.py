@@ -27,11 +27,11 @@ def match_target_amplitude(sound, target_dBFS):
     return sound.apply_gain(change_in_dBFS)
 
 # Load raw audio files for speech synthesis
-def load_raw_audio():
+def load_raw_audio(trainind_data):
     activates = []
     backgrounds = []
     negatives = []
-    for filename in os.listdir("./raw_data/activates"):
+    for filename in os.listdir(trainind_data):
         if filename.endswith("wav"):
             activate = AudioSegment.from_wav("./raw_data/activates/"+filename)
             activates.append(activate)

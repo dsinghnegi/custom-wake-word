@@ -2,7 +2,7 @@ from tensorflow.keras.callbacks import ModelCheckpoint
 from tensorflow.keras.models import Model, load_model, Sequential
 from tensorflow.keras.layers import Dense, Activation, Dropout, Input, Masking, TimeDistributed, LSTM, Conv1D
 from tensorflow.keras.layers import GRU, Bidirectional, BatchNormalization, Reshape
-from tensorflow.keras.optimizers import Adam
+
 
 
 
@@ -30,9 +30,3 @@ def model(input_shape):
 	model = Model(inputs = X_input, outputs = X)
 	
 	return model
-
-# Tx = 5511 # The number of time steps input to the model from the spectrogram
-# n_freq = 101
-
-# model = model(input_shape = (Tx, n_freq))
-# model.summary()
