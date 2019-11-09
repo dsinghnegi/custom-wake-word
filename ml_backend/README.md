@@ -9,4 +9,4 @@ Train model for your own wake Word/trigger word.
  replace `./raw_data/activates` with your training data folder with Wav files.
 
 ## References and others open-source work used
-Lots of idea and code are taken from [Sequence Models course on coursera.](https://www.coursera.org/learn/nlp-sequence-models/home/welcome)
+Lots of idea and code are taken from [Sequence Models course on coursera (Trigger word detection assigment).](https://www.coursera.org/learn/nlp-sequence-models/home/welcome)
