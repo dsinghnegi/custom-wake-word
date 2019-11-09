@@ -2,7 +2,7 @@ from pydub import AudioSegment
 import numpy as np
 from ml_backend.td_utils import *
 # import matplotlib.plt as plt
-from keras.models import load_model
+from tensorflow.keras.models import load_model
 import tensorflow as tf
 
 
@@ -25,7 +25,7 @@ class wake_word(object):
 		segment.export(filename, format='wav')
 
 	def detect_triggerword(self,filename):
-		self.model = load_model(self.model_path)
+		model = load_model(self.model_path)
 		self.preprocess_audio(filename)
 		# plt.subplot(2, 1, 1)
 
@@ -35,10 +35,9 @@ class wake_word(object):
 		x = np.expand_dims(x, axis=0)
 		# global graph
 		# with graph.as_default():
-		predictions = self.model.predict(x)
-		print(predictions)
+		predictions = model.predict(x)
 		
-		del self.model
+		del model
 		# plt.subplot(2, 1, 2)
 		# plt.plot(predictions[0,:,0])
 		# plt.ylabel('probability')
