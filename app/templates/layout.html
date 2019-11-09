@@ -2,7 +2,7 @@
 {% import "macros.html" as m %}
 <html lang="en">
 	<body id="container" >
-		<div id="header">
+		<div id="header" >
 			{% block head %}
 				<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'/>
 				<meta charset="UTF-8">
@@ -26,24 +26,30 @@
 				<title>{{ title }}</title>
 				<!-- Navbar -->
 				<div class="ui attached inverted menu">
-					<div class="right menu">
-						<!-- User is logged in -->
-						{% if current_user.is_authenticated %}
-							<div class="item">
-								<a class="ui primary button" href="/user/account">{{ current_user.full_name }}</a>
-							</div>
-							<div class="item">
-								<a class="ui default button" href="/user/signout">Sign out</a>
-							</div>
-						<!-- User is not logged in -->
-						{% else %}
-							<div class="item">
-								<a class="ui primary button" href="/user/signin">Sign in</a>
-							</div>
-							<div class="item">
-								<a class="ui default button" href="/user/signup">Sign up</a>
-							</div>
-						{% endif %}
+					<div  class="container">
+						{{ m.nav_link('index', 'Home') }}
+						{{ m.nav_link('demo', 'Demo') }}
+					
+					
+						<div class="right menu">
+							<!-- User is logged in -->
+							{% if current_user.is_authenticated %}
+								<div class="item">
+									<a class="ui primary button" href="/user/account">{{ current_user.full_name }}</a>
+								</div>
+								<div class="item">
+									<a class="ui default button" href="/user/signout">Sign out</a>
+								</div>
+							<!-- User is not logged in -->
+							{% else %}
+								<div class="item">
+									<a class="ui primary button" href="/user/signin">Sign in</a>
+								</div>
+								<div class="item">
+									<a class="ui default button" href="/user/signup">Sign up</a>
+								</div>
+							{% endif %}
+						</div>
 					</div>
 				</div>
 			{% endblock %}
