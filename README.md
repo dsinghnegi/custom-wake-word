@@ -1,8 +1,10 @@
 # Custom Wake Word
 Wake word or Trigger word detection is the technology that allows devices like Amazon Alexa, Google Home, Apple Siri, and Baidu DuerOS to wake up upon hearing a certain word. 
- 
+
+![GitHub Logo](/screenshots/output.gif)
+
 ## Demo
-- https://wakeword.herokuapp.com/demo
+- https://wakeword.herokuapp.com/
 
 ## Model
 - [Trainig](ml_model)
